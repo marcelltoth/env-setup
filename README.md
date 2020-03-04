@@ -76,6 +76,8 @@ Launch Ubuntu and perform initialization. Use username `marcelltoth`.
 choco install microsoft-windows-terminal mobaxterm
 ```
 
+Set up X11 in mobaxterm.
+ - X11 Remote access -> full
 Launch terminal, open settings.
 Apply `WindowsTerminal/profiles.json`
 
@@ -86,6 +88,7 @@ Open a terminal session.
 sudo apt update
 sudo apt upgrade
 sudo apt install vim git build-essential libssl-dev curl wget -y
+git lfs install
 ```
 
 Install NVM as per https://github.com/nvm-sh/nvm#installing-and-updating
@@ -93,7 +96,21 @@ Install NVM as per https://github.com/nvm-sh/nvm#installing-and-updating
 
 ### Set wsl options
 
+vim /etc/wsl.conf
 
+```
+[automount]
+root = /
+```
+
+Set the mount point the other way, too:
+```
+net use w: \\wsl$\Ubuntu /persistent:yes
+```
+Run the same in a privileged PS
+```
+net use w: \\wsl$\Ubuntu /persistent:yes
+```
 
 ## Backup
 

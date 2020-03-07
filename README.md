@@ -98,10 +98,7 @@ Install NVM as per https://github.com/nvm-sh/nvm#installing-and-updating
 
 vim /etc/wsl.conf
 
-```
-[automount]
-root = /
-```
+Apply ./etc/wsl.conf
 
 Set the mount point the other way, too:
 ```

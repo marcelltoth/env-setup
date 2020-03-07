@@ -92,8 +92,6 @@ sudo apt install vim git build-essential libssl-dev curl wget -y
 git lfs install
 ```
 
-Install NVM as per https://github.com/nvm-sh/nvm#installing-and-updating
-
 
 ### Set wsl options
 
@@ -109,6 +107,57 @@ Run the same in a privileged PS
 ```
 net use w: \\wsl$\Ubuntu /persistent:yes
 ```
+
+Reboot.
+
+### Download this repo to WSL
+
+This step is needed to make files avialable.
+```
+cd ~
+mkdir source
+sudo ln -s ~/source /s
+```
+```
+cd /s
+git clone https://github.com/marcelltoth/env-setup.git
+cd env-setup
+```
+
+### Install ZSH
+
+```
+sudo apt intsall zsh
+chsh -s $(which zsh)
+```
+Log out and in.
+Verify by `$SHELL --version`.
+
+
+### Install NVM & node
+
+Install NVM as per [instructions on its github](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Install Node LTS:
+```
+nvm install --lts
+nvm use --lts
+```
+
+### Install Oh-My-Zsh
+
+```
+cd ~
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp /s/env-setup/home/.zfunctions -r ~
+cd ~/.zfunctions
+ln -s async.zsh async
+ln -s pure.zsh prompt_pure_setup
+cp /s/env-setup/home/.dircolors ~
+```
+
+Apply /home/.zshrc
+
 
 ## Backup
 

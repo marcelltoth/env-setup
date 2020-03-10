@@ -108,6 +108,9 @@ Run the same in a privileged PS
 net use w: \\wsl$\Ubuntu /persistent:yes
 ```
 
+Limit memory usage:
+Apply USERPROFILE/.wslconfig to %USERPROFILE%/.wslconfig
+
 Reboot.
 
 ### Download this repo to WSL

@@ -29,7 +29,7 @@ Log into OneDrive, sync it
 #### Basic tools
 
 ``` 
-	choco install firefox googlechrome notepadplusplus npppluginmanager 7zip javaruntime lastpass vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist140 qbittorrent slack teamviewer windirstat
+choco install firefox googlechrome notepadplusplus npppluginmanager 7zip javaruntime lastpass vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist140 qbittorrent slack teamviewer windirstat
 ```
 
 Install Office 365 from the website
@@ -37,10 +37,11 @@ Install Office 365 from the website
 #### Development
 
 ```
-	choco install docker-desktop --pre  # as long as the WSL 2 backend is in development
-	choco install git.install --params "/NoShellIntegration /NoAutoCrlf"
-	choco install visualstudio2019community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
-	choco install filezilla  jetbrains-rider dotcover dottrace dotmemory dotpeek webstorm lightshot dotnetcore dotnetcore-sdk azure-functions-core-tools ssms vscode vscode-gitignore vscode-prettier vscode-yaml vscode-chrome-debug vscode-eslint vscode-docker vscode-csharp nodejs virtualbox postman fiddler python3 python2 resharper
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+choco install docker-desktop --pre  # as long as the WSL 2 backend is in development
+choco install git.install --params "/NoShellIntegration /NoAutoCrlf"
+choco install visualstudio2019community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
+choco install filezilla  jetbrains-rider dotcover dottrace dotmemory dotpeek webstorm lightshot dotnetcore dotnetcore-sdk azure-functions-core-tools ssms vscode vscode-gitignore vscode-prettier vscode-yaml vscode-chrome-debug vscode-eslint vscode-docker vscode-csharp nodejs virtualbox postman fiddler python3 python2 resharper
 ```
 
 Finish Docker WSL 2 tutorial: https://docs.docker.com/docker-for-windows/wsl-tech-preview/
@@ -49,7 +50,7 @@ Finish Docker WSL 2 tutorial: https://docs.docker.com/docker-for-windows/wsl-tec
 #### Multimedia
 
 ```
-	choco install reaper obs spotify tidal vlc
+choco install reaper obs spotify tidal vlc
 ```
 
 ## WSL 2

@@ -96,19 +96,19 @@ git lfs install
 
 ### Set wsl options
 
-```
+```sh
 sudo vim /etc/wsl.conf
 ```
 
 Apply ./etc/wsl.conf
 
 Set the mount point the other way, too:
-```
-net use w: \\wsl$\Ubuntu /persistent:yes
+```powershell
+net use w: \\wsl$\Ubuntu-18.04 /persistent:yes
 ```
 Run the same in a privileged PS
-```
-net use w: \\wsl$\Ubuntu /persistent:yes
+```powershell
+net use w: \\wsl$\Ubuntu-18.04 /persistent:yes
 ```
 
 Limit memory usage:

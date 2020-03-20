@@ -96,7 +96,9 @@ git lfs install
 
 ### Set wsl options
 
-vim /etc/wsl.conf
+```
+sudo vim /etc/wsl.conf
+```
 
 Apply ./etc/wsl.conf
 

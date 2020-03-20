@@ -9,7 +9,7 @@ Language EN
 
 ### Install Chocolatey
 
-```
+```powershell
 Set-ExecutionPolicy Bypass -Scope Process
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -28,7 +28,7 @@ Log into OneDrive, sync it
 
 #### Basic tools
 
-``` 
+```powershell
 choco install firefox googlechrome notepadplusplus npppluginmanager 7zip javaruntime lastpass vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist140 qbittorrent slack teamviewer windirstat
 ```
 
@@ -36,7 +36,7 @@ Install Office 365 from the website
 
 #### Development
 
-```
+```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 choco install docker-desktop
 choco install git.install --params "/NoShellIntegration /NoAutoCrlf"
@@ -49,7 +49,7 @@ Finish Docker WSL 2 tutorial: https://docs.docker.com/docker-for-windows/wsl-tec
 
 #### Multimedia
 
-```
+```powershell
 choco install reaper obs spotify tidal vlc
 ```
 
@@ -57,7 +57,7 @@ choco install reaper obs spotify tidal vlc
 
 ### Main feature
 
-```
+```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
@@ -65,7 +65,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 Restart
 
-```
+```powershell
 wsl --set-default-version 2
 ```
 
@@ -74,7 +74,7 @@ Launch Ubuntu and perform initialization. Use username `marcelltoth`.
 
 ### Terminal
 
-```
+```powershell
 choco install microsoft-windows-terminal mobaxterm
 ```
 
@@ -86,7 +86,7 @@ Apply `WindowsTerminal/profiles.json`
 ### Install basic linux utilities
 
 Open a terminal session.
-```
+```sh
 sudo apt update
 sudo apt upgrade
 sudo apt install vim git git-lfs build-essential libssl-dev curl wget -y
@@ -119,12 +119,12 @@ Reboot.
 ### Download this repo to WSL
 
 This step is needed to make files avialable.
-```
+```sh
 cd ~
 mkdir source
 sudo ln -s ~/source /s
 ```
-```
+```sh
 cd /s
 git clone https://github.com/marcelltoth/env-setup.git
 cd env-setup
@@ -132,7 +132,7 @@ cd env-setup
 
 ### Install ZSH
 
-```
+```sh
 sudo apt intsall zsh
 chsh -s $(which zsh)
 ```
@@ -145,14 +145,14 @@ Verify by `$SHELL --version`.
 Install NVM as per [instructions on its github](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Install Node LTS:
-```
+```sh
 nvm install --lts
 nvm use --lts
 ```
 
 ### Install Oh-My-Zsh
 
-```
+```sh
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp /s/env-setup/home/.zfunctions -r ~

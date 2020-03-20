@@ -89,7 +89,7 @@ Open a terminal session.
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install vim git build-essential libssl-dev curl wget -y
+sudo apt install vim git git-lfs build-essential libssl-dev curl wget -y
 git lfs install
 ```
 

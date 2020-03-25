@@ -133,7 +133,7 @@ cd env-setup
 ### Install ZSH
 
 ```sh
-sudo apt intsall zsh
+sudo apt install zsh
 chsh -s $(which zsh)
 ```
 Log out and in.

@@ -130,6 +130,16 @@ git clone https://github.com/marcelltoth/env-setup.git
 cd env-setup
 ```
 
+### Set up SSH keys
+
+```sh
+ssh-keygen -t rsa -b 4096 -C "marcell@marcelltoth.net"
+```
+
+Upload public key to GitHub.
+
+There is no need to explicitly set up `ssh-agent` as the ZSH configuration will take care of that.
+
 ### Install ZSH
 
 ```sh

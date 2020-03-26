@@ -181,8 +181,22 @@ Install [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-high
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
+### Install JetBrains Toolbox
+
+```
+sudo apt install libnss3 libxcursor1 libasound2 libatk1.0 libatk-bridge2.0
+curl https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | sudo bash
+```
+
+Launch MobaXterm.
+
+Launch the toolbox with the command alias `jetbrains`.
+
+Install Webstorm and/or other required tools.
+
 
 ## Backup
 
 Currently Crashplan but switching to Backblaze?
 
+Log in to the JetBrains account

@@ -46,6 +46,12 @@ choco install filezilla  jetbrains-rider dotcover dottrace dotmemory dotpeek web
 
 Finish Docker WSL 2 tutorial: https://docs.docker.com/docker-for-windows/wsl-tech-preview/
 
+Trust the dev-cert:
+```powershell
+certutil -addstore -enterprise -f "Root" C:\Users\marce\OneDrive\CertificateStore\root.pem
+```
+
+
 
 #### Multimedia
 

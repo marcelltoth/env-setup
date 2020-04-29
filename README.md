@@ -41,8 +41,14 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 choco install docker-desktop
 choco install git.install --params "/NoShellIntegration /NoAutoCrlf"
 choco install visualstudio2019community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" --execution-timeout=7200
-choco install filezilla  jetbrains-rider dotcover dottrace dotmemory dotpeek webstorm lightshot dotnetcore dotnetcore-sdk azure-functions-core-tools ssms vscode vscode-gitignore vscode-prettier vscode-yaml vscode-chrome-debug vscode-eslint vscode-docker vscode-csharp nodejs virtualbox postman fiddler python3 python2 resharper
+choco install winscp jetbrains-rider dotcover dottrace dotmemory dotpeek webstorm lightshot dotnetcore dotnetcore-sdk azure-functions-core-tools ssms vscode vscode-gitignore vscode-prettier vscode-yaml vscode-chrome-debug vscode-eslint vscode-docker vscode-csharp nodejs virtualbox postman fiddler python3 python2 resharper
 ```
+
+Set WinSCP to read ini file from OneDrive:
+
+- Options/Preferences
+- Storage -> Custom INI file
+- _C:\Users\marce\OneDrive\WinSCP.ini_
 
 Finish Docker WSL 2 tutorial: https://docs.docker.com/docker-for-windows/wsl-tech-preview/
 

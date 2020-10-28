@@ -209,17 +209,36 @@ Install Webstorm and/or other required tools.
 
 ### Install Yarn
 
-```
+```sh
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install yarn
 ```
 
 Log in to npm:
-```
+```sh
 npm login
 ```
 
+### Set up Git GPG signing
+
+Generate a key for `marcell@marcelltoth.net` with no passphrase.
+```sh
+echo 'export GPG_TTY=$(tty)' >> ~/.profile
+export GPG_TTY=$(tty)
+gpg --gen-key
+```
+Connect it with Git:
+```sh
+gpg --list-secret-keys --keyid-format LONG
+git config --global user.signingkey KEYABCDEF
+git config --global commit.gpgsign true
+```
+
+Export it and upload it to GitHub:
+```sh
+gpg --armor --export marcell@marcelltoth.net
+```
 
 ## Backup
 

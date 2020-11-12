@@ -110,6 +110,7 @@ alias dotnet='dotnet.exe'
 alias adb='adb.exe'
 alias cleanmem='echo "sync && echo 3 > /proc/sys/vm/drop_caches" | sudo sh'
 alias jetbrains='/opt/jetbrains-toolbox/jetbrains-toolbox'
+alias suicide='cmd.exe /c "wsl.exe --shutdown"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

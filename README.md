@@ -115,6 +115,16 @@ sudo vim /etc/wsl.conf
 
 Apply ./etc/wsl.conf
 
+#### Resolve.conf
+
+The options above remove automatic resolve.conf generation (that may end up passing you IPv6 resolutions WSL can't currently handle), meaning you need to create one manually.
+
+```sh
+sudo rm /etc/resolv.conf
+```
+
+Apply ./etc/resolv.conf
+
 Set the mount point the other way, too:
 ```powershell
 net use w: \\wsl$\Ubuntu-18.04 /persistent:yes

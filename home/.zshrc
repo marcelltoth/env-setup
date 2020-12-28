@@ -116,7 +116,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion -- disabled because slow
 
-export HOST_IP=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
+export HOST_IP=`ip route show default | awk '/default/ {print $3}'`
 export DISPLAY=$HOST_IP:0
 # export DOCKER_HOST="tcp://$HOST_IP:2375"
 export GITHUB_TOKEN=

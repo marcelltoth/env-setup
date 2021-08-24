@@ -29,7 +29,7 @@ Log into OneDrive, sync it
 #### Basic tools
 
 ```powershell
-choco install firefox googlechrome notepadplusplus npppluginmanager 7zip javaruntime lastpass vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist140 qbittorrent slack teamviewer windirstat
+choco install firefox googlechrome notepadplusplus npppluginmanager 7zip javaruntime bitwarden vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist140 qbittorrent slack teamviewer windirstat
 ```
 
 Install Office 365 from the website

@@ -145,10 +145,9 @@ This step is needed to make files avialable.
 ```sh
 cd ~
 mkdir source
-sudo ln -s ~/source /s
 ```
 ```sh
-cd /s
+cd ~/source
 git clone https://github.com/marcelltoth/env-setup.git
 cd env-setup
 ```
@@ -188,11 +187,11 @@ nvm use --lts
 ```sh
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp /s/env-setup/home/.zfunctions -r ~
+cp ~/source/env-setup/home/.zfunctions -r ~
 cd ~/.zfunctions
 ln -s async.zsh async
 ln -s pure.zsh prompt_pure_setup
-cp /s/env-setup/home/.dircolors ~
+cp ~/source/env-setup/home/.dircolors ~
 ```
 
 Apply /home/.zshrc
@@ -207,7 +206,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 ### Install JetBrains Toolbox
 
 ```
-sudo apt install libnss3 libxcursor1 libasound2 libatk1.0 libatk-bridge2.0 libxcb-keysyms1 libxss1 libpangocairo-1.0-0 libcups2
+sudo apt install libnss3 libxcursor1 libasound2 libatk1.0-0 libatk-bridge2.0-0 libxcb-keysyms1 libxss1 libpangocairo-1.0-0 libcups2
 curl https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | sudo bash
 ```
 
@@ -252,6 +251,6 @@ gpg --armor --export marcell@marcelltoth.net
 
 ## Backup
 
-Currently Crashplan but switching to Backblaze?
+Install Backblaze per its official docs, and pick the "Inherit backup state" to inherit from the old computer.
 
 Log in to the JetBrains account

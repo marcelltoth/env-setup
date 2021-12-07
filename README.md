@@ -205,7 +205,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ### Install JetBrains Toolbox
 
-```
+```sh
 sudo apt install libnss3 libxcursor1 libasound2 libatk1.0-0 libatk-bridge2.0-0 libxcb-keysyms1 libxss1 libpangocairo-1.0-0 libcups2
 curl https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | sudo bash
 ```
@@ -226,6 +226,14 @@ Log in to npm:
 ```sh
 npm login
 ```
+
+### Set up Git username & email
+```sh
+git config --global user.name "Marcell Toth"
+git config --global user.email "marcell@marcelltoth.net"
+```
+
+Set email separately in repos if desired.
 
 ### Set up Git GPG signing
 

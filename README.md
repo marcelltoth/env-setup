@@ -127,11 +127,11 @@ Apply ./etc/resolv.conf
 
 Set the mount point the other way, too:
 ```powershell
-net use w: \\wsl$\Ubuntu-18.04 /persistent:yes
+net use w: \\wsl.localhost\Ubuntu /persistent:yes
 ```
 Run the same in a privileged PS
 ```powershell
-net use w: \\wsl$\Ubuntu-18.04 /persistent:yes
+net use w: \\wsl.localhost\Ubuntu /persistent:yes
 ```
 
 Limit memory usage:

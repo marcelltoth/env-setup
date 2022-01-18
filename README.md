@@ -79,21 +79,22 @@ Restart
 
 ```powershell
 wsl --set-default-version 2
+wsl --install -d Ubuntu
 ```
 
-Install Ubuntu from the Windows Store.
 Launch Ubuntu and perform initialization. Use username `marcelltoth`.
 
 ### Terminal
 
-```powershell
-choco install microsoft-windows-terminal mobaxterm
-```
+Update Windows Terminal from the Store, set Ubuntu as the default.
 
-Set up X11 in mobaxterm.
- - X11 Remote access -> full
-Launch terminal, open settings.
-Apply `WindowsTerminal/profiles.json`
+
+### WSLg
+
+Install the graphics driver as described here: https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps
+
+Reboot, install `x11-apps` and try to run `xclock`.
+
 
 ### Install basic linux utilities
 
@@ -125,14 +126,6 @@ sudo rm /etc/resolv.conf
 
 Apply ./etc/resolv.conf
 
-Set the mount point the other way, too:
-```powershell
-net use w: \\wsl.localhost\Ubuntu /persistent:yes
-```
-Run the same in a privileged PS
-```powershell
-net use w: \\wsl.localhost\Ubuntu /persistent:yes
-```
 
 Limit memory usage:
 Apply USERPROFILE/.wslconfig to %USERPROFILE%/.wslconfig

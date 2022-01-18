@@ -70,10 +70,10 @@ choco install reaper obs spotify tidal vlc
 ### Main feature
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
+
+Install WSL from [the Store](https://aka.ms/wslstorepage)
 
 Restart
 

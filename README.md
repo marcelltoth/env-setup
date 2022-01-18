@@ -109,23 +109,6 @@ sudo apt install libgtk-3-0 libgtk-3-dev
 
 ### Set wsl options
 
-```sh
-sudo vim /etc/wsl.conf
-```
-
-Apply ./etc/wsl.conf
-
-#### Resolve.conf
-
-The options above remove automatic resolve.conf generation (that may end up passing you IPv6 resolutions WSL can't currently handle), meaning you need to create one manually.
-
-```sh
-sudo rm /etc/resolv.conf
-```
-
-Apply ./etc/resolv.conf
-
-
 Limit memory usage:
 Apply USERPROFILE/.wslconfig to %USERPROFILE%/.wslconfig
 

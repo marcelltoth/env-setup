@@ -169,14 +169,14 @@ ln -s pure.zsh prompt_pure_setup
 cp ~/source/env-setup/home/.dircolors ~
 ```
 
-Apply /home/.zshrc
-
-Reload shell.
-
 Install [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting):
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
+
+Apply /home/.zshrc
+
+Reload shell.
 
 ### Install JetBrains Toolbox
 

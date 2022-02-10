@@ -173,6 +173,11 @@ Install [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-high
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
+Install [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions)
+```sh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
 Apply /home/.zshrc
 
 Reload shell.

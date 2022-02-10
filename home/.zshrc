@@ -20,6 +20,7 @@ plugins=(git ssh-agent docker yarn zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U compinit && compinit
 autoload -U promptinit; promptinit
 prompt pure
 

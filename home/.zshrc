@@ -16,7 +16,7 @@ eval `dircolors ~/.dircolors`
 unsetopt BEEP
 
 export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
-plugins=(git ssh-agent docker yarn zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git ssh-agent docker yarn zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

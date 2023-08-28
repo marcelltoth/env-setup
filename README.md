@@ -156,12 +156,18 @@ Reload shell.
 ### Set up SSH keys
 
 ```sh
-ssh-keygen -t rsa -b 4096 -C "marcell@marcelltoth.net"
+ssh-keygen -t ed25519 -b 4096 -C "marcell@marcelltoth.net"
 ```
 
 Upload public key to GitHub.
 
-There is no need to explicitly set up `ssh-agent` as the ZSH configuration will take care of that.
+Let's now enable the Windows OpenSSH key agent, and add the key.
+
+```powershell
+Start-Service ssh-agent
+Set-Service -Name ssh-agent -StartupType 'Automatic'
+ssh-add path-to-the-private-key
+```
 
 
 ### Set up Git username & email

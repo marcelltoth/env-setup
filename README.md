@@ -2,7 +2,7 @@
 
 ## Basic Setup
 
-Windows 2004+
+Windows 11
 Latest updates
 Language EN
 
@@ -10,7 +10,6 @@ Language EN
 ### Install Chocolatey
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco feature enable -n allowGlobalConfirmation
@@ -32,99 +31,127 @@ Log into OneDrive, sync it
 choco install firefox googlechrome notepadplusplus npppluginmanager 7zip javaruntime bitwarden vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist140 qbittorrent slack teamviewer windirstat
 ```
 
-Install Office 365 from the website
-
-#### Development
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-choco install docker-desktop
-choco install git.install --params "/NoShellIntegration /NoAutoCrlf"
-choco install webstorm dotnetcore dotnetcore-sdk azure-functions-core-tools ssms vscode vscode-gitignore vscode-prettier vscode-yaml vscode-chrome-debug vscode-eslint vscode-docker vscode-csharp nodejs postman fiddler python3 python2
-```
-
-Set WinSCP to read ini file from OneDrive:
-
-- Options/Preferences
-- Storage -> Custom INI file
-- _C:\Users\marce\OneDrive\WinSCP.ini_
-
-Finish Docker WSL 2 tutorial: https://docs.docker.com/docker-for-windows/wsl-tech-preview/
-
-Trust the dev-cert:
-```powershell
-certutil -addstore -enterprise -f "Root" C:\Users\marce\OneDrive\CertificateStore\root.pem
-```
-
-
-
-#### Multimedia
+#### Multimedia (optional)
 
 ```powershell
 choco install reaper obs spotify tidal vlc
 ```
 
-## WSL 2
+#### Manual setup
+
+Install Office 365 from the website
+
+Finish Windows Updates
+
+### Development
+
+#### WSL
+
+This is needed for Docker Desktop even if not used directly.
+
+```powershell
+wsl --install
+```
+
+Reboot.
+
+Wait for the prompt to come up, and set the username as `marcelltoth`.
+
+#### Docker
+
+```powershell
+choco install docker-desktop
+```
+
+Reboot.
+
+Open Docker Desktop, accept terms.
+
+#### Install NVM & node
+
+Install NVM Windows per [instructions on its github](https://github.com/coreybutler/nvm-windows)
+
+Install Node LTS. This may need to be ran in a non-elevated shell window. NVM handles UAC requests automatically.
+```sh
+nvm install lts
+nvm use lts
+```
+Let's install Yarn, and log into NPM.
+```sh
+npm i -g yarn
+npm login
+```
+
+#### Windows-native development tools
+
+```
+choco install git.install --params "/NoShellIntegration /NoAutoCrlf"
+choco install jetbrainstoolbox dotnet dotnet-sdk azure-functions-core-tools ssms vscode vscode-gitignore vscode-prettier vscode-yaml vscode-chrome-debug vscode-eslint vscode-docker vscode-csharp nodejs postman fiddler python3 python2
+```
+
+Start Jetbrains Toolbox, log in, then install the desired tools.
+
+## MSYS2
 
 ### Main feature
 
 ```powershell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+choco install msys2
 ```
 
-Install WSL from [the Store](https://aka.ms/wslstorepage)
+#### Terminal
 
-Restart
+Add this config to the Windows Terminal settings.
 
-```powershell
-wsl --set-default-version 2
-wsl --install -d Ubuntu
+```json
+
+            {
+                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -use-full-path",
+                "font": 
+                {
+                    "face": "Cascadia Code",
+                    "size": 11.0,
+                    "weight": "normal"
+                },
+                "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
+                "icon": "C:/msys64/ucrt64.ico",
+                "name": "MSYS2 / UCRT64"
+            },
 ```
 
-Launch Ubuntu and perform initialization. Use username `marcelltoth`.
+### Install ZSH
 
-### Terminal
-
-Update Windows Terminal from the Store, set Ubuntu as the default.
-
-
-### WSLg
-
-Install the graphics driver as described here: https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps
-
-Reboot, install `x11-apps` and try to run `xclock`.
-
-
-### Install basic linux utilities
-
-Open a terminal session.
 ```sh
-sudo apt update
-sudo apt upgrade
-sudo apt install vim git git-lfs build-essential libssl-dev curl wget -y
-sudo apt install libgtk-3-0 libgtk-3-dev
+pacman -Syu
+pacman -S zsh
 ```
 
+Append `-shell zsh` to the command line above, and open a new shell window. 
 
-### Set wsl options
+If the install was correct, you should see the ZSH configuration prompt. You can pick `(q)` because we are going to override.
 
-Limit memory usage:
-Apply USERPROFILE/.wslconfig to %USERPROFILE%/.wslconfig
+### Install Oh-My-Zsh
 
-Reboot.
-
-### Download this repo to WSL
-
-This step is needed to make files avialable.
 ```sh
 cd ~
-mkdir source
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/marcelltoth/env-setup
+cp ~/env-setup/home/.zfunctions -r ~
+cd ~/.zfunctions
+ln -s async.zsh async
+ln -s pure.zsh prompt_pure_setup
+cp ~/env-setup/home/.dircolors ~
 ```
+
+Install [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting):
 ```sh
-cd ~/source
-git clone https://github.com/marcelltoth/env-setup.git
-cd env-setup
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
+
+Apply /home/.zshrc
+
+Reload shell.
+
 
 ### Set up SSH keys
 
@@ -136,75 +163,6 @@ Upload public key to GitHub.
 
 There is no need to explicitly set up `ssh-agent` as the ZSH configuration will take care of that.
 
-### Install ZSH
-
-```sh
-sudo apt install zsh
-chsh -s $(which zsh)
-```
-Log out and in.
-Verify by `$SHELL --version`.
-
-
-### Install NVM & node
-
-Install NVM as per [instructions on its github](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Install Node LTS:
-```sh
-nvm install --lts
-nvm use --lts
-```
-
-### Install Oh-My-Zsh
-
-```sh
-cd ~
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp ~/source/env-setup/home/.zfunctions -r ~
-cd ~/.zfunctions
-ln -s async.zsh async
-ln -s pure.zsh prompt_pure_setup
-cp ~/source/env-setup/home/.dircolors ~
-```
-
-Install [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting):
-```sh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-Install [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions)
-```sh
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-```
-
-Apply /home/.zshrc
-
-Reload shell.
-
-### Install JetBrains Toolbox
-
-```sh
-sudo apt install libnss3 libxcursor1 libasound2 libatk1.0-0 libatk-bridge2.0-0 libxcb-keysyms1 libxss1 libpangocairo-1.0-0 libcups2
-curl https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | sudo bash
-```
-
-Launch MobaXterm.
-
-Launch the toolbox with the command alias `jetbrains`.
-
-Install Webstorm and/or other required tools.
-
-### Install Yarn
-
-```sh
-npm i -g yarn
-```
-
-Log in to npm:
-```sh
-npm login
-```
 
 ### Set up Git username & email
 ```sh
@@ -214,7 +172,7 @@ git config --global user.email "marcell@marcelltoth.net"
 
 Set email separately in repos if desired.
 
-### Set up Git GPG signing
+### Set up Git GPG signing - optional
 
 Generate a key for `marcell@marcelltoth.net` with no passphrase.
 ```sh
@@ -237,5 +195,3 @@ gpg --armor --export marcell@marcelltoth.net
 ## Backup
 
 Install Backblaze per its official docs, and pick the "Inherit backup state" to inherit from the old computer.
-
-Log in to the JetBrains account

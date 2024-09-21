@@ -9,6 +9,8 @@ Language EN
 
 ### Install Chocolatey
 
+In an admin-powershell:
+
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -28,13 +30,13 @@ Log into OneDrive, sync it
 #### Basic tools
 
 ```powershell
-choco install firefox googlechrome notepadplusplus npppluginmanager 7zip javaruntime bitwarden vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist140 qbittorrent slack teamviewer windirstat
+choco install googlechrome notepadplusplus npppluginmanager 7zip bitwarden qbittorrent slack teamviewer windirstat
 ```
 
 #### Multimedia (optional)
 
 ```powershell
-choco install reaper obs spotify tidal vlc
+choco install reaper obs spotify tidal vlc ffmpeg
 ```
 
 #### Manual setup

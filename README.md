@@ -86,9 +86,20 @@ npm login
 
 #### Windows-native development tools
 
+Install Git for Windows. Use the following:
+  - Editor: Vim
+  - Branch name: as you wish
+  - PATH: Git from the command line and also from 3rd-party
+  - SSH executable: Use external OpenSSH
+  - HTTPS transport backend: Use the native Windows Secure Channel library
+  - Autocrlf: Checkout as-is, commit as-is
+  - Terminal: Use MinTTY
+  - Pull behavior: Only ever fast-forward
+  - Credential helper: GitCM
+  - Extra: FS Cache
+
 ```
-choco install git.install --params "/NoShellIntegration /NoAutoCrlf"
-choco install jetbrainstoolbox dotnet dotnet-sdk azure-functions-core-tools ssms vscode vscode-gitignore vscode-prettier vscode-yaml vscode-chrome-debug vscode-eslint vscode-docker vscode-csharp nodejs postman fiddler python3 python2
+choco install postman python3 python2
 ```
 
 Start Jetbrains Toolbox, log in, then install the desired tools.

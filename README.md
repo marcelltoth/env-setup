@@ -112,6 +112,8 @@ Start Jetbrains Toolbox, log in, then install the desired tools.
 choco install msys2
 ```
 
+Create a `source` folder under Windows home.
+
 #### Terminal
 
 Add this config to the Windows Terminal settings.
@@ -119,7 +121,7 @@ Add this config to the Windows Terminal settings.
 ```json
 
             {
-                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -use-full-path",
+                "commandline": "C:/tools/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -use-full-path -where C:/Users/marce/source",
                 "font": 
                 {
                     "face": "Cascadia Code",
@@ -127,7 +129,7 @@ Add this config to the Windows Terminal settings.
                     "weight": "normal"
                 },
                 "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
-                "icon": "C:/msys64/ucrt64.ico",
+                "icon": "C:/tools/msys64/ucrt64.ico",
                 "name": "MSYS2 / UCRT64"
             },
 ```

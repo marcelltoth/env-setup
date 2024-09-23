@@ -163,6 +163,8 @@ Install [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-high
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
+_Note: Last time I tried, the above was making the terminal super slow. If so, simply remove it from the plugins list when applying .zshrc_
+
 Apply /home/.zshrc
 
 Reload shell.

@@ -180,14 +180,18 @@ Upload public key to GitHub.
 
 Let's now enable the Windows OpenSSH key agent, and add the key.
 
+Admin PS:
 ```powershell
+Get-Service -Name ssh-agent | Set-Service -StartupType Automatic
 Start-Service ssh-agent
-Set-Service -Name ssh-agent -StartupType 'Automatic'
+```
+
+In a normal Bash window:
+```bash
 ssh-add path-to-the-private-key
 ```
 
-
-### Set up Git username & email
+### (Optional) Set up global Git username & email
 ```sh
 git config --global user.name "Marcell Toth"
 git config --global user.email "marcell@marcelltoth.net"

@@ -4,8 +4,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/home/marce/.oh-my-zsh"
  
-fpath=( "$HOME/.zfunctions" $fpath )
-
 export EDITOR=/usr/bin/vim
 
 ZSH_THEME=""

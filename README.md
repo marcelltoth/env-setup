@@ -1,3 +1,4 @@
+B
 # MTLT Environment Setup
 
 ## Basic Setup
@@ -151,10 +152,6 @@ If the install was correct, you should see the ZSH configuration prompt. You can
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/marcelltoth/env-setup
-cp ~/env-setup/home/.zfunctions -r ~
-cd ~/.zfunctions
-ln -s async.zsh async
-ln -s pure.zsh prompt_pure_setup
 cp ~/env-setup/home/.dircolors ~
 ```
 

@@ -166,6 +166,13 @@ Apply /home/.zshrc
 
 Reload shell.
 
+### Set up vim
+
+Install vim if you haven't yet.
+
+Install [vim-plug](https://github.com/junegunn/vim-plug) per their documentation.
+
+Apply  /home/.vimrc
 
 ### Set up SSH keys
 

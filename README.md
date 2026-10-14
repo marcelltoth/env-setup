@@ -162,7 +162,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 _Note: Last time I tried, the above was making the terminal super slow. If so, simply remove it from the plugins list when applying .zshrc_
 
-Apply /home/.zshrc
+Apply /home/.bashrc and /home/.zshrc
 
 Reload shell.
 
